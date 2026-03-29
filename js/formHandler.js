@@ -4,19 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('part-request-form');
     const submitBtn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('form-message');
-    const fileInput = document.getElementById('imageUpload');
-    const fileNameDisplay = document.getElementById('file-name-display');
-
-    // File upload display
-    if (fileInput && fileNameDisplay) {
-        fileInput.addEventListener('change', () => {
-            if (fileInput.files.length > 0) {
-                fileNameDisplay.textContent = fileInput.files[0].name;
-            } else {
-                fileNameDisplay.textContent = '';
-            }
-        });
-    }
 
     // Floating label behavior
     document.querySelectorAll('.floating-label-group .form-control').forEach(input => {
