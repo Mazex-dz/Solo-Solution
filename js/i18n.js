@@ -12,13 +12,27 @@ const translations = {
         stat_time: "Average Quote Time",
         stat_qual: "Quality Assured",
         trust_title: "The Standard in Part Sourcing",
-        trust_sub: "We leverage a global network of verified suppliers to deliver OEM and premium aftermarket parts directly to you.",
+        trust_sub: "We leverage an Algerian network of verified suppliers to deliver OEM and premium aftermarket parts directly to you.",
         feat1_title: "Fast Sourcing",
         feat1_text: "Submit your request and our intelligent network begins locating your specific part within minutes.",
         feat2_title: "Verified Suppliers",
         feat2_text: "We strictly work with authorized distributors and top-tier salvage yards to guarantee authenticity.",
         feat3_title: "Quality Checked",
         feat3_text: "Every part undergoes a rigorous inspection protocol before it is approved for final delivery.",
+        steps_title: "How It Works",
+        steps_sub: "Getting the part you need is simple — just follow these steps.",
+        step1_num: "01",
+        step1_title: "Submit Your Request",
+        step1_text: "Fill in the form with your vehicle details and the part you need. The more info, the better.",
+        step2_num: "02",
+        step2_title: "We Search & Source",
+        step2_text: "Our team searches across our verified Algerian supplier network to find your exact part.",
+        step3_num: "03",
+        step3_title: "Receive a Quote",
+        step3_text: "You get a price quote within 24 hours via phone or WhatsApp — no hidden fees.",
+        step4_num: "04",
+        step4_title: "Get Your Part",
+        step4_text: "Confirm your order and we handle delivery or pickup — fast, reliable, and hassle-free.",
         req_title: "Request a Specific Part",
         req_sub: "Provide as much detail as possible. Have a VIN number? Include it in the description for 100% accuracy.",
         lbl_fname: "First Name",
@@ -60,14 +74,28 @@ const translations = {
         hero_btn2: "\u0627\u0639\u0631\u0641 \u0627\u0644\u0645\u0632\u064a\u062f",
         stat_time: "\u0645\u062a\u0648\u0633\u0637 \u0648\u0642\u062a \u0627\u0644\u062a\u0633\u0639\u064a\u0631",
         stat_qual: "\u062c\u0648\u062f\u0629 \u0645\u0636\u0645\u0648\u0646\u0629",
-        trust_title: "\u0627\u0644\u0645\u0639\u064a\u0627\u0631 \u0641\u064a \u062a\u0648\u0631\u064a\u062f \u0627\u0644\u0642\u0637\u0639",
-        trust_sub: "\u0646\u062d\u0646 \u0646\u0633\u062a\u0641\u064a\u062f \u0645\u0646 \u0634\u0628\u0643\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0645\u0646 \u0627\u0644\u0645\u0648\u0631\u062f\u064a\u0646 \u0627\u0644\u0645\u0639\u062a\u0645\u062f\u064a\u0646 \u0644\u062a\u0642\u062f\u064a\u0645 \u0642\u0637\u0639 \u0623\u0635\u0644\u064a\u0629 \u0648\u0645\u0627 \u0628\u0639\u062f \u0627\u0644\u0628\u064a\u0639 \u0627\u0644\u0645\u0645\u062a\u0627\u0632\u0629 \u0645\u0628\u0627\u0634\u0631\u0629 \u0625\u0644\u064a\u0643.",
-        feat1_title: "\u062a\u0648\u0631\u064a\u062f \u0633\u0631\u064a\u0639",
-        feat1_text: "\u0623\u0631\u0633\u0644 \u0637\u0644\u0628\u0643 \u0648\u062a\u0628\u062f\u0623 \u0634\u0628\u0643\u062a\u0646\u0627 \u0627\u0644\u0630\u0643\u064a\u0629 \u0641\u064a \u062a\u062d\u062f\u064a\u062f \u0645\u0648\u0642\u0639 \u0627\u0644\u0642\u0637\u0639\u0629 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 \u0641\u064a \u063a\u0636\u0648\u0646 \u062f\u0642\u0627\u0626\u0642.",
-        feat2_title: "\u0645\u0648\u0631\u062f\u0648\u0646 \u0645\u0639\u062a\u0645\u062f\u0648\u0646",
-        feat2_text: "\u0646\u062d\u0646 \u0646\u0639\u0645\u0644 \u0628\u0635\u0631\u0627\u0645\u0629 \u0645\u0639 \u0627\u0644\u0645\u0648\u0632\u0639\u064a\u0646 \u0627\u0644\u0645\u0639\u062a\u0645\u062f\u064a\u0646 \u0648\u0633\u0627\u062d\u0627\u062a \u0627\u0644\u062e\u0631\u062f\u0629 \u0645\u0646 \u0627\u0644\u062f\u0631\u062c\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 \u0644\u0636\u0645\u0627\u0646 \u0627\u0644\u0623\u0635\u0627\u0644\u0629.",
-        feat3_title: "\u0641\u062d\u0635 \u0627\u0644\u062c\u0648\u062f\u0629",
-        feat3_text: "\u062a\u062e\u0636\u0639 \u0643\u0644 \u0642\u0637\u0639\u0629 \u0644\u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644 \u0641\u062d\u0635 \u0635\u0627\u0631\u0645 \u0642\u0628\u0644 \u0627\u0644\u0645\u0648\u0627\u0641\u0642\u0629 \u0639\u0644\u064a\u0647\u0627 \u0644\u0644\u062a\u0633\u0644\u064a\u0645 \u0627\u0644\u0646\u0647\u0627\u0626\u064a.",
+        trust_title: "المعيار في توريد القطع",
+        trust_sub: "نحن نستفيد من شبكة جزائرية من الموردين المعتمدين لتقديم قطع أصلية وما بعد البيع الممتازة مباشرة إليك.",
+        feat1_title: "توريد سريع",
+        feat1_text: "أرسل طلبك وتبدأ شبكتنا الذكية في تحديد موقع القطعة المحددة في غضون دقائق.",
+        feat2_title: "موردون معتمدون",
+        feat2_text: "نحن نعمل بصرامة مع الموزعين المعتمدين وساحات الخردة من الدرجة الأولى لضمان الأصالة.",
+        feat3_title: "فحص الجودة",
+        feat3_text: "تخضع كل قطعة لبروتوكول فحص صارم قبل الموافقة عليها للتسليم النهائي.",
+        steps_title: "كيف يعمل",
+        steps_sub: "الحصول على القطعة التي تحتاجها بسيط — فقط اتبع هذه الخطوات.",
+        step1_num: "٠١",
+        step1_title: "أرسل طلبك",
+        step1_text: "املأ النموذج بتفاصيل سيارتك والقطعة التي تحتاجها. كلما زادت المعلومات كان أفضل.",
+        step2_num: "٠٢",
+        step2_title: "نبحث ونوفر",
+        step2_text: "يبحث فريقنا عبر شبكة الموردين الجزائريين المعتمدين لديه للعثور على قطعتك الدقيقة.",
+        step3_num: "٠٣",
+        step3_title: "استلم عرض السعر",
+        step3_text: "ستحصل على عرض سعر خلال 24 ساعة عبر الهاتف أو واتساب — بدون رسوم خفية.",
+        step4_num: "٠٤",
+        step4_title: "احصل على قطعتك",
+        step4_text: "أكد طلبك ونحن نتولى التوصيل أو الاستلام — سريع، موثوق، وبدون متاعب.",
         req_title: "\u0627\u0637\u0644\u0628 \u0642\u0637\u0639\u0629 \u0645\u062d\u062f\u062f\u0629",
         req_sub: "\u0642\u062f\u0645 \u0623\u0643\u0628\u0631 \u0642\u062f\u0631 \u0645\u0645\u0643\u0646 \u0645\u0646 \u0627\u0644\u062a\u0641\u0627\u0635\u064a\u0644. \u0647\u0644 \u0644\u062f\u064a\u0643 \u0631\u0642\u0645 VIN\u061f \u0642\u0645 \u0628\u062a\u0636\u0645\u064a\u0646\u0647 \u0641\u064a \u0627\u0644\u0648\u0635\u0641 \u0644\u0636\u0645\u0627\u0646 \u0627\u0644\u062f\u0642\u0629 \u0628\u0646\u0633\u0628\u0629 100\u066a.",
         lbl_fname: "\u0627\u0644\u0627\u0633\u0645 \u0627\u0644\u0623\u0648\u0644",
@@ -101,7 +129,7 @@ const translations = {
     }
 };
 
-let currentLang = localStorage.getItem('lang') || 'en';
+let currentLang = localStorage.getItem('lang') || 'ar';
 
 function applyLanguage(lang) {
     document.documentElement.lang = lang;
@@ -125,10 +153,8 @@ function applyLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Only apply if Arabic is stored; English is the default HTML state
-    if (currentLang === 'ar') {
-        applyLanguage('ar');
-    }
+    // Apply the initial language right away
+    applyLanguage(currentLang);
 
     const langBtn = document.getElementById('lang-toggle');
     if (langBtn) {

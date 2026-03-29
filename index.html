@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -46,7 +46,7 @@
     </style>
 </head>
 
-<body class="dark-theme">
+<body class="dark-theme lang-ar">
 
     <!-- Navigation -->
     <nav class="navbar glass-effect">
@@ -54,10 +54,20 @@
             <a href="#" class="brand-logo">
                 <span class="brand-text">SOLO<span class="brand-accent">SOLUTION</span></span>
             </a>
+
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
             <div class="nav-links">
                 <a href="#about" class="nav-link" data-i18n="nav_about">About us</a>
                 <a href="#how-it-works" class="nav-link" data-i18n="nav_how">How it works</a>
-                <button id="lang-toggle" class="lang-btn">عربي</button>
+                <button id="lang-toggle" class="lang-btn">English</button>
                 <a href="#request-part" class="btn btn-primary btn-small" data-i18n="nav_req">Request Part</a>
             </div>
         </div>
@@ -79,7 +89,6 @@
                     <a href="#how-it-works" class="btn btn-secondary btn-large" data-i18n="hero_btn2">Learn More</a>
                 </div>
             </div>
-
             <div class="hero-stats glass-card fade-in-up">
                 <div class="stat-item">
                     <span class="stat-number">24h</span>
@@ -100,7 +109,8 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" data-i18n="trust_title">The Standard in Part Sourcing</h2>
-                <p class="section-subtitle" data-i18n="trust_sub">We leverage a global network of verified suppliers to
+                <p class="section-subtitle" data-i18n="trust_sub">We leverage an Algerian network of verified suppliers
+                    to
                     deliver OEM and
                     premium aftermarket parts directly to you.</p>
             </div>
@@ -120,12 +130,9 @@
                         specific part within minutes.</p>
                 </div>
                 <div class="feature-card glass-card hover-lift">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
+                    <div class="feature-icon feature-icon--logo">
+                        <img src="Logo.png" alt="Solo Solution Logo"
+                            style="width:100%;height:100%;object-fit:contain;border-radius:0;">
                     </div>
                     <h3 class="feature-title" data-i18n="feat2_title">Verified Suppliers</h3>
                     <p class="feature-text" data-i18n="feat2_text">We strictly work with authorized distributors and
@@ -143,6 +150,40 @@
                     <p class="feature-text" data-i18n="feat3_text">Every part undergoes a rigorous inspection protocol
                         before it is approved
                         for final delivery.</p>
+                </div>
+            </div>
+
+            <!-- How It Works Steps -->
+            <div class="section-header" style="margin-top:4rem;">
+                <h2 class="section-title" data-i18n="steps_title">How It Works</h2>
+                <p class="section-subtitle" data-i18n="steps_sub">Getting the part you need is simple &mdash; just
+                    follow these steps.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card glass-card hover-lift">
+                    <div class="step-number" data-i18n="step1_num">01</div>
+                    <h3 class="feature-title" data-i18n="step1_title">Submit Your Request</h3>
+                    <p class="feature-text" data-i18n="step1_text">Fill in the form with your vehicle details and the
+                        part you need. The more info, the better.</p>
+                </div>
+                <div class="step-card glass-card hover-lift">
+                    <div class="step-number" data-i18n="step2_num">02</div>
+                    <h3 class="feature-title" data-i18n="step2_title">We Search &amp; Source</h3>
+                    <p class="feature-text" data-i18n="step2_text">Our team searches across our verified Algerian
+                        supplier network to find your exact part.</p>
+                </div>
+                <div class="step-card glass-card hover-lift">
+                    <div class="step-number" data-i18n="step3_num">03</div>
+                    <h3 class="feature-title" data-i18n="step3_title">Receive a Quote</h3>
+                    <p class="feature-text" data-i18n="step3_text">You get a price quote within 24 hours via phone or
+                        WhatsApp &mdash; no hidden fees.</p>
+                </div>
+                <div class="step-card glass-card hover-lift">
+                    <div class="step-number" data-i18n="step4_num">04</div>
+                    <h3 class="feature-title" data-i18n="step4_title">Get Your Part</h3>
+                    <p class="feature-text" data-i18n="step4_text">Confirm your order and we handle delivery or pickup
+                        &mdash; fast, reliable, and hassle-free.</p>
                 </div>
             </div>
         </div>
