@@ -456,6 +456,14 @@ a {
 .footer-links a {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a svg {
+    color: var(--accent-primary);
 }
 
 .footer-links a:hover {
