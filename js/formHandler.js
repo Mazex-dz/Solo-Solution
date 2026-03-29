@@ -1,132 +1,107 @@
-/**
- * Solo Solution - Form Validator and Submission Handler
- */
+// formHandler.js - Form validation and submission
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('part-request-form');
     const submitBtn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('form-message');
+    const fileInput = document.getElementById('imageUpload');
+    const fileNameDisplay = document.getElementById('file-name-display');
 
-    // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-    const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby-hfMvvqksM4yMnfzqBf2RulJhKWM4ZyRV9aL2zVgPXqIlGkbNfWPKaNmUANuk-Ag4/exec';
+    // File upload display
+    if (fileInput && fileNameDisplay) {
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = '';
+            }
+        });
+    }
+
+    // Floating label behavior
+    document.querySelectorAll('.floating-label-group .form-control').forEach(input => {
+        const checkFilled = () => {
+            if (input.value.trim()) {
+                input.classList.add('has-value');
+            } else {
+                input.classList.remove('has-value');
+            }
+        };
+        input.addEventListener('input', checkFilled);
+        input.addEventListener('blur', checkFilled);
+        checkFilled();
+    });
 
     if (!form) return;
+
+    // Google Sheets Web App URL - update this after deploying your Apps Script
+    const SHEETS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec';
+
+    function validateField(input) {
+        const group = input.closest('.floating-label-group');
+        if (!group) return true;
+        const errorEl = group.querySelector('.error-text');
+        const isValid = input.checkValidity();
+
+        if (!isValid) {
+            group.classList.add('error');
+            if (errorEl) errorEl.style.display = 'block';
+        } else {
+            group.classList.remove('error');
+            if (errorEl) errorEl.style.display = 'none';
+        }
+        return isValid;
+    }
+
+    form.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => {
+            if (input.closest('.floating-label-group')?.classList.contains('error')) {
+                validateField(input);
+            }
+        });
+    });
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Clear previous messages
-        formMessage.className = 'form-message';
-        formMessage.textContent = '';
-
-        let isValid = validateForm();
-
-        if (isValid) {
-            await submitForm();
-        } else {
-            showError('Please correct the highlighted errors in the form.');
-        }
-    });
-
-    function validateForm() {
         let isFormValid = true;
-        const requiredFields = form.querySelectorAll('[required]');
-
-        requiredFields.forEach(field => {
-            if (!field.value.trim() || !field.checkValidity()) {
-                showFieldError(field);
-                isFormValid = false;
-            } else {
-                clearFieldError(field);
-            }
+        form.querySelectorAll('.form-control[required]').forEach(input => {
+            if (!validateField(input)) isFormValid = false;
         });
 
-        // Custom validation specific to year
-        const yearField = document.getElementById('carYear');
-        if (yearField.value) {
-            const year = parseInt(yearField.value, 10);
-            const currentYear = new Date().getFullYear();
-            if (year < 1900 || year > currentYear + 1) {
-                showFieldError(yearField);
-                isFormValid = false;
-            }
-        }
+        if (!isFormValid) return;
 
-        return isFormValid;
-    }
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
 
-    function showFieldError(field) {
-        const group = field.closest('.form-group');
-        if (group) {
-            group.classList.add('has-error');
-        }
-    }
+        submitBtn.disabled = true;
+        if (btnText) btnText.classList.add('hidden');
+        if (btnLoader) btnLoader.classList.remove('hidden');
 
-    function clearFieldError(field) {
-        const group = field.closest('.form-group');
-        if (group) {
-            group.classList.remove('has-error');
-        }
-    }
-
-    function showError(message) {
-        formMessage.textContent = message;
-        formMessage.className = 'form-message error';
-    }
-
-    function showSuccess(message) {
-        formMessage.textContent = message;
-        formMessage.className = 'form-message success';
-    }
-
-    async function submitForm() {
-        // Set loading state
-        submitBtn.classList.add('loading');
-        submitBtn.setAttribute('disabled', 'disabled');
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
         try {
-            const formData = new FormData(form);
-            const data = {};
-
-            for (const pair of formData.entries()) {
-                if (pair[0] !== 'imageUpload') {
-                    data[pair[0]] = pair[1];
-                }
-            }
-
-            if (GOOGLE_APP_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
-                throw new Error('Please set your GOOGLE_APP_SCRIPT_URL in formHandler.js');
-            }
-
-            // Real submission flow pointing to Google Apps Script Web App
-            const response = await fetch(GOOGLE_APP_SCRIPT_URL, {
+            await fetch(SHEETS_URL, {
                 method: 'POST',
-                // Text/plain prevents CORS preflight OPTIONS request to Apps Script
-                headers: {
-                    'Content-Type': 'text/plain;charset=utf-8'
-                },
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
 
-            const result = await response.json();
+            formMessage.textContent = '✅ Your request has been submitted! We\'ll contact you within 24 hours.';
+            formMessage.className = 'form-message success';
+            form.reset();
+            form.querySelectorAll('.form-control').forEach(i => i.classList.remove('has-value'));
 
-            if (result.status === 'success') {
-                form.reset();
-                form.querySelectorAll('.form-control').forEach(el => el.classList.remove('has-value'));
-                document.getElementById('file-name-display').textContent = '';
-
-                showSuccess('Request submitted successfully! Our sourcing team will contact you shortly.');
-            } else {
-                throw new Error(result.message || 'Unknown server error');
-            }
-
-        } catch (error) {
-            console.error('Submission failed', error);
-            showError('A network error occurred while submitting your request. Please try again or contact us directly.');
+        } catch (err) {
+            formMessage.textContent = '❌ Submission failed. Please try WhatsApp or email directly.';
+            formMessage.className = 'form-message error';
         } finally {
-            // Restore button state
-            submitBtn.classList.remove('loading');
-            submitBtn.removeAttribute('disabled');
+            submitBtn.disabled = false;
+            if (btnText) btnText.classList.remove('hidden');
+            if (btnLoader) btnLoader.classList.add('hidden');
         }
-    }
+    });
 });
