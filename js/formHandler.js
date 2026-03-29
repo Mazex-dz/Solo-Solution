@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form) return;
 
     // Google Sheets Web App URL - update this after deploying your Apps Script
-    const SHEETS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec';
+    const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwn_dqqYQrhsIQ4Kk4KiQTaGxyYVo8lQZMuD5elGWfGYE5W_qEdrcvJ3qLYXzqtvUKe/exec';
 
     function validateField(input) {
         const group = input.closest('.floating-label-group');
